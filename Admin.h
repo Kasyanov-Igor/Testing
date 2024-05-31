@@ -1,8 +1,9 @@
 #pragma once
-#include <iostream>
+
 #include "User.h"
 #include <string>
 #include <fstream>
+#include "Test.h"
 
 class Admin: public User
 {
@@ -57,7 +58,7 @@ class Admin: public User
            }
            else
            {
-               std::cout << "Админестратор уже зарегестрирован" << std::endl;
+               std::cout << "Administrator is already registered" << std::endl;
            }
        }
 
