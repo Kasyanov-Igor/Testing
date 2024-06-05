@@ -4,13 +4,15 @@
 #include "User.h"
 #include <fstream>
 #include <string>
+#include <filesystem>
 //std::vector<Tested> anyone_rested;
 
 /// <summary>
 /// folder creation Создание папки
 /// </summary>
 /// <param name="name directory"></param>
-void Add_directory(std::string& name_directory)
+void Add_directory(std::string name_directory, std::filesystem::path name_Person_Data_file, std::filesystem::path name_statictics_file
+, std::filesystem::path name_login_pass_file, std::filesystem::path name_file_test_incomplete, std::filesystem::path currentPath_)
 {
 	std::filesystem::path currentPath = std::filesystem::current_path();
 	std::filesystem::path relativePath = currentPath / name_directory;
@@ -18,12 +20,12 @@ void Add_directory(std::string& name_directory)
 	std::filesystem::create_directory(relativePath);
 	
 
-	/*name_Person_Data_file = relativePath;
+	name_Person_Data_file = relativePath;
 	name_Person_Data_file = relativePath;
 	name_statictics_file = relativePath;
 	name_login_pass_file = relativePath;
 	name_file_test_incomplete = relativePath;
-	currentPath_ = relativePath;*/
+	currentPath_ = relativePath;
 
 }
 
@@ -54,7 +56,8 @@ public:
 		std::cout << "Enter full name:" << std::endl;
 		std::getline(std::cin, name);
 
-		Add_directory(name);
+		Add_directory(name, name_Person_Data_file, name_statictics_file, name_login_pass_file
+		, name_file_test_incomplete, currentPath);
 
 		std::string login;
 		std::cout << "Enter login:" << std::endl;

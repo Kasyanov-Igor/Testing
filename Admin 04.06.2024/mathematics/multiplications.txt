@@ -1,0 +1,60 @@
+1.How much is 2*2
+   A) 2
+   B) 4
+   C) 7
+   D) 9
+2.How much is 2*1
+   A) 3
+   B) 4
+   C) 2
+   D) 9
+3.How much is 1*1
+   A) 1
+   B) 4
+   C) 2
+   D) 9
+4.how much is 1*5
+   A) 1
+   B) 5
+   C) 2
+   D) 9
+5.what is 2*5
+   A) 1
+   B) 5
+   C) 10
+   D) 9
+6.what is 5*5
+   A) 25
+   B) 5
+   C) 10
+   D) 9
+7.what is 10*5
+   A) 25
+   B) 50
+   C) 10
+   D) 9
+8.how much is 10*10
+   A) 100
+   B) 50
+   C) 10
+   D) 9
+9.how much is 3*2
+   A) 100
+   B) 50
+   C) 6
+   D) 9
+10.how much is 1*11
+   A) 11
+   B) 50
+   C) 6
+   D) 9
+11.how much is 5*3
+   A) 11
+   B) 15
+   C) 6
+   D) 9
+12.how much is 1*6
+   A) 1
+   B) 5
+   C) 6
+   D) 9

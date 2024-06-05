@@ -3,7 +3,8 @@
 #include <map>
 #include <vector>
 #include <windows.h>
-
+#include <fstream>
+#include <filesystem>
 
 //std::vector<Tested> anyone_rested;
 //::map < std::string, std::vector<Test>> category_and_all_test;

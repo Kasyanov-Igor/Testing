@@ -1,0 +1,12 @@
+B                                                                                          1.b
+C
+A
+B
+C
+A
+B
+A
+C
+A
+B
+C
