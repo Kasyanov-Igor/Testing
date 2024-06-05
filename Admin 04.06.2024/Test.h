@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <string>
 #include <fstream>
+#include <map>
 //std::map < std::string, std::vector<Test>> category_and_all_test;
 
 class Test
@@ -38,7 +39,7 @@ class Test
 	void Display_Questions();
 	void Add_Question(std::string question);
     void Check_answer();
-	void Delete_Questions(std::string question);
+	void Delete_Questions();
 
 	std::filesystem::path Get_Category();
 	std::filesystem::path Get_Name_Test();

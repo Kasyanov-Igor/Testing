@@ -1,8 +1,8 @@
 #include "Tested.h"
 
 
-void Add_directory(std::string name_directory, std::filesystem::path name_Person_Data_file, std::filesystem::path name_statictics_file
-	, std::filesystem::path name_login_pass_file, std::filesystem::path name_file_test_incomplete, std::filesystem::path currentPath_)
+void Add_directory(std::string name_directory, std::filesystem::path& name_Person_Data_file, std::filesystem::path& name_statictics_file
+	, std::filesystem::path& name_login_pass_file, std::filesystem::path& name_file_test_incomplete, std::filesystem::path& currentPath_)
 {
 	std::filesystem::path currentPath = std::filesystem::current_path();
 	std::filesystem::path relativePath = currentPath / name_directory;
@@ -10,10 +10,9 @@ void Add_directory(std::string name_directory, std::filesystem::path name_Person
 	std::filesystem::create_directory(relativePath);
 
 
-	name_Person_Data_file = relativePath;
-	name_Person_Data_file = relativePath;
+	name_Person_Data_file = relativePath/"name_Person_Data_file.txt";
 	name_statictics_file = relativePath;
-	name_login_pass_file = relativePath;
+	name_login_pass_file = relativePath/"login_pass_file.txt";
 	name_file_test_incomplete = relativePath;
 	currentPath_ = relativePath;
 
@@ -33,7 +32,7 @@ std::string Tested::Encryption(std::string& pass)
 
 void Tested::Registration() 
 {
-	std::cin.get();
+	//std::cin.get();
 	std::cin.clear();
 
 	std::string name;
@@ -63,8 +62,8 @@ void Tested::Registration()
 	}
 	else
 	{
-		entry_login_pass << encrypted_login << std::endl;
-		entry_login_pass << encrypted_password << std::endl;
+		entry_login_pass <<"login: " << encrypted_login << std::endl;
+		entry_login_pass << "password: " << encrypted_password << std::endl;
 		entry_login_pass.close();// закрытия файла
 	}
 
@@ -89,8 +88,8 @@ void Tested::Registration()
 	else
 	{
 		entry_info_person << name << std::endl;
-		entry_info_person << addres << std::endl;
-		entry_info_person << phone_number << std::endl;
+		entry_info_person <<"addres: "<< addres << std::endl;
+		entry_info_person << "phone_number: " << phone_number << std::endl;
 
 		entry_info_person.close();// закрытия файла
 	}

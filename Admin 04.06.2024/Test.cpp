@@ -49,6 +49,7 @@ void Test::Check_answer()
 	currPath += "/";
 	currPath += category;
 	currPath += "/";
+	std::filesystem::path currPath2 = currPath_;
 	std::ifstream file_answer(currPath += file_test_answer);
 	if (file_answer.is_open()) //открыли файл
 	{
@@ -65,7 +66,7 @@ void Test::Check_answer()
 
 		std::cout << " no file" << std::endl;
 	}
-	int sum_answer = 0;
+	float sum_answer = 0;
 	for (int i = 0; i < answer_user.size(); ++i)
 	{
 		
@@ -74,13 +75,66 @@ void Test::Check_answer()
 			sum_answer++;
 		}
 	}
-	int size_ = answer_user.size();
-	int percentage =  sum_answer/ size_ * 100;
+	float size_ = answer_user.size();
+	float percentage =  sum_answer/size_ * 100;
+
 	std::cout << "passed " << percentage << " %" << std::endl;
+
+	std::ofstream entry_info_person(currPath2+= statistics_test, std::ios::app);
+	if (!entry_info_person.is_open())
+	{
+		std::cout << "The file won't open" << std::endl;
+	}
+	else
+	{
+		entry_info_person << percentage << std::endl;
+		entry_info_person.close();// закрытия файла
+	}
+
+
+
 }
 
-void Test::Delete_Questions(std::string question)
+void Test::Delete_Questions(std::string user)
 {
+	std::filesystem::path currPath = currPath_;
+	currPath += "/";
+	currPath += category;
+	currPath += "/";
+	std::filesystem::path currPath2= currPath;
+
+	std::string outputFileName = "output.txt";
+	std::string textToRemove = "удаляемый текст"; // Текст, который нужно удалить
+	std::cin >> textToRemove;
+	std::ifstream inputFile(currPath+=name_file_test_question);
+	std::ofstream outputFile(currPath2 +=outputFileName);
+
+	if (!inputFile.is_open() || !outputFile.is_open())
+	{
+		std::cerr << "Ошибка открытия файла!" << std::endl;
+	}
+
+	std::string line;
+	while (std::getline(inputFile, line))
+	{
+		if (line.find(textToRemove) == std::string::npos)
+		{
+			outputFile << line << std::endl;
+		}
+	}
+
+	inputFile.close();
+	outputFile.close();
+
+	// Удалить оригинальный файл
+	remove(name_file_test_question);
+
+	// Переименовать временный файл
+	rename(outputFileName, name_file_test_question);
+
+	std::cout << "Текст удален из файла." << std::endl;
+
+
 
 }
 
@@ -93,6 +147,13 @@ std::filesystem::path Test::Get_Name_Test()
 {
 	return Test::name_file_test_question;
 }
+
+
+
+std::map < std::string, std::vector<Test>> category_and_all_test;
+
+
+
 
 void Question()
 {
@@ -114,8 +175,10 @@ void Question()
 		std::cout << "select the category section\n GPW \n Napoleon " << std::endl;
 		std::cin >> category;
 		Test a(directory, category, category + "_responses.txt");
-		a.Display_Questions();
-		a.Check_answer();
+		/*a.Display_Questions();
+		a.Check_answer();*/
+		a.Delete_Questions();
+
 	}
 	else if (directory == "literature")
 	{
