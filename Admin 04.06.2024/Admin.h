@@ -7,7 +7,7 @@
 
 class Admin: public User
 {
-    std::string name_login_pass_file = "User_administrator_and_passwor";
+    std::string name_login_pass_file = "administrator_and_passwor";
     std::string Encryption(std::string& pass) override;
 
 	Admin() {};

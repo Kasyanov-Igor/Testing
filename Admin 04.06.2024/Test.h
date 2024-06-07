@@ -17,8 +17,7 @@ class Test
 	std::filesystem::path file_test_answer;
 	std::filesystem::path category;
 	std::filesystem::path statistics_test="statistics_test.txt";
-	std::vector <char> answer;
-	std::vector <char> answer_user;
+
 
  public:
 	 /// <summary>
@@ -38,8 +37,7 @@ class Test
 	 }
 	void Display_Questions();
 	void Add_Question(std::string question);
-    void Check_answer();
-	void Delete_Questions();
+    void Check_answer(char a);
 
 	std::filesystem::path Get_Category();
 	std::filesystem::path Get_Name_Test();
